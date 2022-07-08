@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:play_turf/View/Pages/splash_screen/splash.dart';
 import 'package:play_turf/model/savedkeys.dart';
-import 'package:play_turf/view/splash_screen/splash.dart';
 import 'package:sizer/sizer.dart';
 import 'package:get/get.dart';
 
