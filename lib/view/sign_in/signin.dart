@@ -7,7 +7,7 @@ import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:play_turf/controllers/login_controller.dart';
 import 'package:sizer/sizer.dart';
-import '../../constants.dart';
+import '../constants.dart';
 import '../sign_up/signup.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 

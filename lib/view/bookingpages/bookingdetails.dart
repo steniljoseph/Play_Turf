@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:play_turf/constants.dart';
+import 'package:play_turf/view/constants.dart';
 import 'package:play_turf/view/bookingpages/bknghistory.dart';
 import 'package:sizer/sizer.dart';
 
@@ -180,7 +180,7 @@ class BookingDetails extends StatelessWidget {
                     onTap: () => Navigator.push(
                       context,
                       PageTransition(
-                        child: const BookingHistory(),
+                        child: BookingHistory(),
                         type: PageTransitionType.bottomToTop,
                       ),
                     ),

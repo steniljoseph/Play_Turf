@@ -1,10 +1,13 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:play_turf/constants.dart';
+import 'package:play_turf/view/constants.dart';
 import 'package:play_turf/main.dart';
 import 'package:play_turf/model/savedkeys.dart';
 import 'package:play_turf/view/bookingpages/bknghistory.dart';
+import 'package:play_turf/view/common_widgets/customlist.dart';
 import 'package:play_turf/view/favourites/favourite.dart';
 import 'package:play_turf/view/home_screen/widgets/alert.dart';
 import 'package:play_turf/view/profile/profile.dart';
@@ -14,10 +17,8 @@ import 'package:play_turf/view/turfs/turfs.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
-import '../../../common_widgets/customlist.dart';
 
 class DrawerClass extends StatelessWidget {
-  // final dynamic dtata;
   DrawerClass({
     Key? key,
   }) : super(key: key);
@@ -26,7 +27,6 @@ class DrawerClass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var datata = dtata;
     return Drawer(
       backgroundColor: Colors.white,
       child: ListView(
@@ -38,9 +38,7 @@ class DrawerClass extends StatelessWidget {
               Navigator.push(
                 context,
                 PageTransition(
-                  child: ProfilePage(
-                      // dtata: datata,
-                      ),
+                  child: ProfilePage(),
                   type: PageTransitionType.bottomToTop,
                 ),
               );
@@ -73,7 +71,7 @@ class DrawerClass extends StatelessWidget {
               Navigator.push(
                 context,
                 PageTransition(
-                  child: const TurfLIstPage(),
+                  child: TurfLIstPage(),
                   type: PageTransitionType.bottomToTop,
                 ),
               );
@@ -87,7 +85,7 @@ class DrawerClass extends StatelessWidget {
               Navigator.push(
                 context,
                 PageTransition(
-                  child: const BookingHistory(),
+                  child: BookingHistory(),
                   type: PageTransitionType.bottomToTop,
                 ),
               );

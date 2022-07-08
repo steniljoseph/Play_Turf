@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:play_turf/constants.dart';
+import 'package:play_turf/view/constants.dart';
 import 'package:play_turf/model/savedkeys.dart';
 import 'package:play_turf/view/profile/changepass.dart';
 import 'package:play_turf/view/profile/editprofile.dart';

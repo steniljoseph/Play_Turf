@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../common_widgets/customlist.dart';
-import '../../constants.dart';
+import 'package:play_turf/view/common_widgets/customlist.dart';
+import '../constants.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -30,32 +30,32 @@ class _SettingsPageState extends State<SettingsPage> {
           children: [
             ListView(
               shrinkWrap: true,
-              children: [
-                SwitchListTile(
-                  title: const Text(
-                    'Push Notification',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  value: _toggled,
-                  onChanged: (bool value) {
-                    setState(() {
-                      _toggled = value;
-                    });
-                  },
-                  secondary: const Icon(
-                    Icons.notifications,
-                    color: Colors.black,
-                  ),
-                ),
-                const CustomListTile(
+              children: const [
+                // SwitchListTile(
+                //   title: const Text(
+                //     'Push Notification',
+                //     style: TextStyle(fontWeight: FontWeight.bold),
+                //   ),
+                //   value: _toggled,
+                //   onChanged: (bool value) {
+                //     setState(() {
+                //       _toggled = value;
+                //     });
+                //   },
+                //   secondary: const Icon(
+                //     Icons.notifications,
+                //     color: Colors.black,
+                //   ),
+                // ),
+                CustomListTile(
                   titleNew: 'Terms & Conditions',
                   leadingNew: Icons.library_books,
                 ),
-                const CustomListTile(
+                CustomListTile(
                   titleNew: 'Privacy Policies',
                   leadingNew: Icons.lock,
                 ),
-                const CustomListTile(
+                CustomListTile(
                   titleNew: 'About US',
                   leadingNew: Icons.info,
                 )

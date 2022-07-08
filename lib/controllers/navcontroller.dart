@@ -28,7 +28,7 @@ class NavigationController extends GetxController {
 
   Future navtoHome() async {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.offAll(() => const HomePage(),
+      Get.offAll(() => HomePage(),
           transition: Transition.fade, duration: const Duration(milliseconds: 700));
     });
   }

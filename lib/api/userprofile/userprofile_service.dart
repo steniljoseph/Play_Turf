@@ -10,14 +10,14 @@ class GetUserProfileServices {
         ApiUrl.baseUrl + ApiUrl.getUserProfilePath,
       );
       if (response.statusCode == 200) {
-        print('jjj');
         List<User> _model = userLoginResponseDataFromJson(response.data) as List<User>;
         return _model;
       }
     } catch (e) {
-      print(e.toString());
+      DioError;
+      // print(e.toString());
     }
-    print('hii');
+
     return null;
   }
 }

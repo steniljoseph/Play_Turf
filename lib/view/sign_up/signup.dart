@@ -5,7 +5,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' as getx;
 import 'package:get/get.dart';
-import 'package:play_turf/constants.dart';
+import 'package:play_turf/view/constants.dart';
 import 'package:play_turf/controllers/register_controller.dart';
 import 'package:sizer/sizer.dart';
 import '../sign_in/signin.dart';

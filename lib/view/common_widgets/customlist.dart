@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:play_turf/constants.dart';
+import 'package:play_turf/view/constants.dart';
 
 class CustomListTile extends StatelessWidget {
   final String? titleNew;

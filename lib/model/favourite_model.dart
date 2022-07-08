@@ -1,72 +1,60 @@
 // To parse this JSON data, do
 //
-//     final offerDatas = offerDatasFromJson(jsonString);
+//     final favouriteData = favouriteDataFromJson(jsonString);
 
 import 'dart:convert';
 
-OfferDatas offerDatasFromJson(String str) => OfferDatas.fromJson(json.decode(str));
+FavouriteData favouriteDataFromJson(String str) => FavouriteData.fromJson(json.decode(str));
 
-String offerDatasToJson(OfferDatas data) => json.encode(data.toJson());
+String favouriteDataToJson(FavouriteData data) => json.encode(data.toJson());
 
-class OfferDatas {
-  OfferDatas({
+class FavouriteData {
+  FavouriteData({
     required this.message,
-    required this.offer,
+    required this.turf,
   });
 
   final String message;
-  final List<Offer> offer;
+  final List<Turf> turf;
 
-  factory OfferDatas.fromJson(Map<String, dynamic> json) => OfferDatas(
+  factory FavouriteData.fromJson(Map<String, dynamic> json) => FavouriteData(
         message: json["message"],
-        offer: List<Offer>.from(json["offer"].map((x) => Offer.fromJson(x))),
+        turf: List<Turf>.from(json["turf"].map((x) => Turf.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "message": message,
-        "offer": List<dynamic>.from(offer.map((x) => x.toJson())),
+        "turf": List<dynamic>.from(turf.map((x) => x.toJson())),
       };
 }
 
-class Offer {
-  Offer({
+class Turf {
+  Turf({
     required this.id,
+    required this.userId,
     required this.turfId,
-    required this.offerPercent,
-    required this.fromDate,
-    required this.toDate,
-    required this.status,
     required this.v,
     required this.turfDetails,
   });
 
   final String id;
+  final String userId;
   final String turfId;
-  final int offerPercent;
-  final String fromDate;
-  final String toDate;
-  final bool status;
   final int v;
   final List<TurfDetail> turfDetails;
 
-  factory Offer.fromJson(Map<String, dynamic> json) => Offer(
+  factory Turf.fromJson(Map<String, dynamic> json) => Turf(
         id: json["_id"],
+        userId: json["userId"],
         turfId: json["turfId"],
-        offerPercent: json["offerPercent"],
-        fromDate: json["fromDate"],
-        toDate: json["toDate"],
-        status: json["status"],
         v: json["__v"],
         turfDetails: List<TurfDetail>.from(json["turfDetails"].map((x) => TurfDetail.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "_id": id,
+        "userId": userId,
         "turfId": turfId,
-        "offerPercent": offerPercent,
-        "fromDate": fromDate,
-        "toDate": toDate,
-        "status": status,
         "__v": v,
         "turfDetails": List<dynamic>.from(turfDetails.map((x) => x.toJson())),
       };

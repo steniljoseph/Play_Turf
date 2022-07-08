@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:play_turf/constants.dart';
+import 'package:play_turf/view/constants.dart';
 import 'package:play_turf/view/sign_in/signin.dart';
 import 'package:play_turf/view/sign_up/signup.dart';
 import 'package:sizer/sizer.dart';

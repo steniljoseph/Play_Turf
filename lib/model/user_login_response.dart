@@ -31,13 +31,13 @@ class UserLoginResponseData {
 
 class User {
   User({
-     this.id,
+    this.id,
     required this.name,
-     this.phone,
-     this.email,
-     this.password,
-     this.isActive,
-     this.v,
+    this.phone,
+    this.email,
+    this.password,
+    this.isActive,
+    this.v,
   });
 
   String? id;

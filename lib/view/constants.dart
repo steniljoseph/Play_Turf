@@ -67,6 +67,11 @@ const kRedColour = Colors.red;
 final kWidth = SizedBox(
   width: 1.w,
 );
+
+final kWidth2 = SizedBox(
+  width: 2.w,
+);
+
 final kHeight = SizedBox(
   height: 1.h,
 );
@@ -132,6 +137,24 @@ final kerrorBorder = OutlineInputBorder(
 final kBookNowButton = Container(
   height: 5.h,
   width: 23.w,
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(10),
+    color: Colors.orange,
+  ),
+  child: const Center(
+    child: Text(
+      'Book Now',
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+      ),
+      textAlign: TextAlign.center,
+    ),
+  ),
+);
+
+final kbookNowTurfButton = Container(
+  height: 3.5.h,
+  width: 20.w,
   decoration: BoxDecoration(
     borderRadius: BorderRadius.circular(10),
     color: Colors.orange,

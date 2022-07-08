@@ -1,247 +1,83 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:play_turf/constants.dart';
+import 'package:get/get.dart';
+import 'package:play_turf/controllers/favourite_controller.dart';
+import 'package:play_turf/view/constants.dart';
+import 'package:play_turf/controllers/homepage_controller.dart';
+import 'package:play_turf/model/turf_model.dart';
+import 'package:play_turf/view/turfs/customturf.dart';
 import 'package:sizer/sizer.dart';
 
 class TurfLIstPage extends StatelessWidget {
-  const TurfLIstPage({Key? key}) : super(key: key);
+  TurfLIstPage({Key? key}) : super(key: key);
+
+  final HomePageController c = Get.put(HomePageController());
+  final FavouriteController fc = Get.put(FavouriteController());
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: AppBar(
-            foregroundColor: kBlackColor,
-            title: Text(
-              'Turfs',
-              style: kAppBarTitleStyle,
-            ),
-            actions: [
-              Wrap(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.search),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.filter_2),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.watch_later_outlined),
-                  ),
-                ],
-              )
-            ],
+        appBar: AppBar(
+          foregroundColor: kBlackColor,
+          title: Text(
+            'Turfs',
+            style: kAppBarTitleStyle,
           ),
-          body: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.only(left: 5.w, right: 5.w),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        width: 20.w,
-                        height: 12.h,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomLeft: Radius.circular(20),
-                          ),
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/images/mts.jpg',
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 32.h,
-                        height: 12.h,
-                        decoration: BoxDecoration(
-                          color: kGreyColour[300],
-                          borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(20),
-                          ),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 5.w, right: 5.w),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              kHeight,
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'MTS Turf',
-                                    style: kDetailText,
-                                  ),
-                                  Text(
-                                    '  |  ',
-                                    style: kDetailText,
-                                  ),
-                                  Text(
-                                    'Football',
-                                    style: kDetailText,
-                                  ),
-                                ],
-                              ),
-                              kHeight,
-                              Text(
-                                'Kakkanad',
-                                style: kDetailText,
-                              ),
-                              kHeight,
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    '₹ 1500',
-                                    style: kDetailText,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.favorite_border,
-                                        size: 2.5.h,
-                                      ),
-                                      kWidth,
-                                      kWidth,
-                                      Container(
-                                        height: 3.5.h,
-                                        width: 20.w,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(10),
-                                          color: Colors.orange,
-                                        ),
-                                        child: const Center(
-                                          child: Text(
-                                            'Book Now',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+          actions: [
+            Wrap(
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.search),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.filter_2),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.watch_later_outlined),
+                ),
+              ],
+            )
+          ],
+        ),
+        body: Padding(
+          padding: EdgeInsets.only(left: 5.w, right: 5.w),
+          child: FutureBuilder<TurfDetails>(
+            future: c.fetchTurfs(),
+            builder: (context, AsyncSnapshot<TurfDetails> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                  child: CupertinoActivityIndicator(
+                    radius: 18,
+                    color: kGreenColor,
                   ),
-                  kHeight2,
-                  Row(
-                    children: [
-                      Container(
-                        width: 20.w,
-                        height: 12.h,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomLeft: Radius.circular(20),
-                          ),
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/images/mts.jpg',
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 32.h,
-                        height: 12.h,
-                        decoration: BoxDecoration(
-                          color: kGreyColour[300],
-                          borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(20),
-                          ),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 5.w, right: 5.w),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              kHeight,
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'MTS Turf',
-                                    style: kDetailText,
-                                  ),
-                                  Text(
-                                    '  |  ',
-                                    style: kDetailText,
-                                  ),
-                                  Text(
-                                    'Football',
-                                    style: kDetailText,
-                                  ),
-                                ],
-                              ),
-                              kHeight,
-                              Text(
-                                'Kakkanad',
-                                style: kDetailText,
-                              ),
-                              kHeight,
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    '₹ 1500',
-                                    style: kDetailText,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.favorite_border,
-                                        size: 2.5.h,
-                                      ),
-                                      kWidth,
-                                      kWidth,
-                                      Container(
-                                        height: 3.5.h,
-                                        width: 20.w,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(10),
-                                          color: Colors.orange,
-                                        ),
-                                        child: const Center(
-                                          child: Text(
-                                            'Book Now',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-          )),
+                );
+              }
+              TurfDetails turfDetails = snapshot.data!;
+              return ListView.separated(
+                separatorBuilder: (context, index) => kHeight2,
+                itemCount: turfDetails.turf.length,
+                itemBuilder: (context, index) => CustomTurf(
+                  image: turfDetails.turf[index].turfPictures[0].toString(),
+                  turfName: turfDetails.turf[index].centername,
+                  categoryName: turfDetails.turf[index].category,
+                  location: turfDetails.turf[index].location,
+                  price: turfDetails.turf[index].price.toString(),
+                  booknow: () {},
+                  favbutton: () {
+                    // fc.turfID = turfDetails.turf[index].id;
+                    // print(turfDetails.turf[index].centername);
+                    // fc.addFavourite();
+                  },
+                ),
+              );
+            },
+          ),
+        ),
+      ),
     );
   }
 }
