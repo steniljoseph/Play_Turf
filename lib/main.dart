@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:play_turf/View/Pages/splash_screen/splash.dart';
-import 'package:play_turf/model/savedkeys.dart';
+import 'package:play_turf/Models/savedkeys.dart';
+import 'package:play_turf/Views/constants.dart';
 import 'package:sizer/sizer.dart';
 import 'package:get/get.dart';
+import 'Views/Pages/splash_screen/splash.dart';
 
 const savedKey = "SaveKey";
 const onboardKey = "OnboardKey";
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
                 statusBarIconBrightness: Brightness.dark,
               ),
             ),
+            textSelectionTheme: const TextSelectionThemeData(selectionColor: kBlackColor),
           ),
           debugShowCheckedModeBanner: false,
           title: 'Play Turf',
